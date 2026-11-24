@@ -324,7 +324,7 @@ export const InputSuhuView: React.FC<InputSuhuViewProps> = ({
           {selectedRoom && (
             <div className="p-3 bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs">
               <div className="text-slate-600 dark:text-slate-400">
-                <span className="font-semibold text-slate-900 dark:text-slate-200">{selectedRoom.location}</span>: {selectedRoom.description}
+                <span className="font-semibold text-slate-900 dark:text-slate-200">{selectedRoom.name}</span>
               </div>
               <div className="flex items-center gap-2 shrink-0">
                 <span className="text-[11px] text-slate-500 dark:text-slate-400">Target Normal:</span>

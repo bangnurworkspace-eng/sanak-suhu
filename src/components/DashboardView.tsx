@@ -507,7 +507,6 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                     )}
                   </div>
                   <h4 className="font-bold text-slate-900 dark:text-white text-sm mt-2">{room.name}</h4>
-                  <p className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-1">{room.description}</p>
                 </div>
 
                 <div className="mt-3 pt-2 border-t border-slate-200 dark:border-slate-800/80 flex items-center justify-between text-xs font-mono">

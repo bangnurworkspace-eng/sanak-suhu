@@ -305,8 +305,6 @@ export const MasterRuanganView: React.FC<MasterRuanganViewProps> = ({
               </div>
 
               <h3 className="text-base font-bold text-slate-900 dark:text-white mt-3">{room.name}</h3>
-              {room.location && <p className="text-xs text-cyan-600 dark:text-cyan-400 font-medium">{room.location}</p>}
-              {room.description && <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 line-clamp-2">{room.description}</p>}
 
               {/* Temperature & Humidity Limit Boxes */}
               <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 space-y-2">
