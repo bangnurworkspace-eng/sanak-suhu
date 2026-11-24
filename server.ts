@@ -29,16 +29,18 @@ import {
 const PORT = Number(process.env.PORT || 3000);
 
 // Clean up any legacy local files if present so zero local data or config files exist on disk
-for (const legacyPath of [
-  path.resolve(process.cwd(), '.simonsu-data'),
-  path.resolve(process.cwd(), '.simonsu-bridge.json'),
-]) {
-  try {
-    if (fs.existsSync(legacyPath)) {
-      fs.rmSync(legacyPath, { recursive: true, force: true });
+if (!process.env.VERCEL) {
+  for (const legacyPath of [
+    path.resolve(process.cwd(), '.simonsu-data'),
+    path.resolve(process.cwd(), '.simonsu-bridge.json'),
+  ]) {
+    try {
+      if (fs.existsSync(legacyPath)) {
+        fs.rmSync(legacyPath, { recursive: true, force: true });
+      }
+    } catch {
+      // Ignore cleanup issues
     }
-  } catch {
-    // Ignore cleanup issues
   }
 }
 
@@ -665,7 +667,7 @@ async function pushAllSheetsToSpreadsheet(
   return { success: false, message: lastSyncMessage };
 }
 
-async function startServer() {
+export function createApiApp() {
   const app = express();
   app.use(express.json({ limit: '5mb' }));
 
@@ -861,6 +863,12 @@ async function startServer() {
     }
   });
 
+  return app;
+}
+
+async function startServer() {
+  const app = createApiApp();
+
   if (process.env.NODE_ENV !== 'production') {
     const { createServer: createViteServer } = await import('vite');
     const vite = await createViteServer({
@@ -881,4 +889,6 @@ async function startServer() {
   });
 }
 
-startServer();
+if (!process.env.VERCEL) {
+  startServer();
+}
