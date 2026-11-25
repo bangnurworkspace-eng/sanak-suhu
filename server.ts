@@ -14,6 +14,7 @@ import type {
 import {
   SPREADSHEET_ID,
   SPREADSHEET_URL,
+  DEFAULT_APPS_SCRIPT_WEBHOOK_URL,
   SIMONSU_SHEETS,
   buildAllSheetsMatrix,
   getRecordAllKeys,
@@ -50,7 +51,7 @@ let runtimeWebhookOverride: string | null = null;
 
 function loadConfiguredWebhookUrl(): string {
   if (runtimeWebhookOverride !== null) return runtimeWebhookOverride;
-  return (process.env.APPS_SCRIPT_WEBHOOK_URL || '').trim();
+  return (process.env.APPS_SCRIPT_WEBHOOK_URL || DEFAULT_APPS_SCRIPT_WEBHOOK_URL).trim();
 }
 
 function saveConfiguredWebhookUrl(url: string): void {

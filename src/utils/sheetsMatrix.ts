@@ -15,6 +15,8 @@ import type {
 
 export const SPREADSHEET_ID = '1OSxiUqSNVrYBuW2VG_2SrUGGdCNp-_K4NaKfSx5q9QA';
 export const SPREADSHEET_URL = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/edit`;
+export const DEFAULT_APPS_SCRIPT_WEBHOOK_URL =
+  'https://script.google.com/macros/s/AKfycbwDvf0IU64HuWOKkX0YF23lDoNOdydZmd0d_JXLbVcNQo7FskXVp6Ck9RTo4SUnaxrNUQ/exec';
 
 export const SIMONSU_SHEETS = {
   DASHBOARD: 'Dashboard_Ringkasan',

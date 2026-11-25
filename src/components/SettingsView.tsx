@@ -27,6 +27,7 @@ import { DEFAULT_ROLE_CONFIGS, logAudit } from '../utils/storage';
 import {
   SPREADSHEET_ID,
   SPREADSHEET_URL,
+  DEFAULT_APPS_SCRIPT_WEBHOOK_URL,
   SIMONSU_SHEETS,
   saveServerWebhookConfig,
   exportAllSheetsToExcel,
@@ -66,7 +67,9 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
   const [selectedRoleCode, setSelectedRoleCode] = useState<string>('PETUGAS');
   const [saveSuccessMsg, setSaveSuccessMsg] = useState<string | null>(null);
   const [errorBannerMsg, setErrorBannerMsg] = useState<string | null>(null);
-  const [webhookUrl, setWebhookUrlState] = useState<string>(syncMeta?.webhookUrl || '');
+  const [webhookUrl, setWebhookUrlState] = useState<string>(
+    syncMeta?.webhookUrl || DEFAULT_APPS_SCRIPT_WEBHOOK_URL
+  );
   const [isSavingWebhook, setIsSavingWebhook] = useState<boolean>(false);
   const [webhookSaved, setWebhookSaved] = useState<boolean>(false);
   const [copiedScript, setCopiedScript] = useState<boolean>(false);
@@ -76,7 +79,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
 
   useEffect(() => {
     if (syncMeta?.webhookUrl !== undefined && !isSavingWebhook) {
-      setWebhookUrlState((prev) => prev || syncMeta.webhookUrl || '');
+      setWebhookUrlState((prev) => prev || syncMeta.webhookUrl || DEFAULT_APPS_SCRIPT_WEBHOOK_URL);
     }
   }, [syncMeta?.webhookUrl, isSavingWebhook]);
 

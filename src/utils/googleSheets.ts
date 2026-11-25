@@ -9,6 +9,7 @@ import { Room, TemperatureRecord, User, AuditLog, RoleConfig } from '../types/si
 import {
   SPREADSHEET_ID,
   SPREADSHEET_URL,
+  DEFAULT_APPS_SCRIPT_WEBHOOK_URL,
   SIMONSU_SHEETS,
   GOOGLE_APPS_SCRIPT_TEMPLATE,
   buildAllSheetsMatrix,
@@ -20,6 +21,7 @@ import {
 export {
   SPREADSHEET_ID,
   SPREADSHEET_URL,
+  DEFAULT_APPS_SCRIPT_WEBHOOK_URL,
   SIMONSU_SHEETS,
   GOOGLE_APPS_SCRIPT_TEMPLATE,
   buildAllSheetsMatrix,
